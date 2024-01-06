@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import { CORE_CONCEPTS } from './data.js';
+import { CORE_CONCEPTS, EXAMPLES} from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
-
+// import {  } from './data.js';
 
 
 function App() {
@@ -46,7 +46,15 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          Dynamic Content
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic ] !== undefined && EXAMPLES[selectedTopic ].title}</h3>
+            <p></p>
+            <pre>
+              <code>
+
+              </code>
+            </pre>
+          </div>
         </section>
         {selectedTopic}
       </main>
