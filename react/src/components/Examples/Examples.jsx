@@ -1,3 +1,4 @@
+import './Examples.css';
 export default function Example({title, description, code}){
     return (
         <div id="tab-content">

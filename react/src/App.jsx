@@ -4,7 +4,7 @@ import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 // import {  } from './data.js';
-import Example from './components/Examples.jsx';
+import Example from './components/Examples/Examples.jsx';
 
 function App() {
   // Only call hooks inside component Funcition
