@@ -1,1 +1,1 @@
-# react2024
+# react2024npm create vite@latest
