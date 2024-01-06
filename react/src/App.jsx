@@ -1,9 +1,20 @@
+import {useState} from 'react';
 import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
+
+
 function App() {
+  // Only call hooks inside component Funcition
+  // Only call hooks on the top level
+  let [selectedTopic, setSelectedTopic] = useState('Please Click a Button');
+  
+  function handleSelect(selectedButton){
+    setSelectedTopic(selectedButton);
+    
+  }
   return (
     <div>
       <Header />
@@ -28,11 +39,16 @@ function App() {
           </ul>
         </section>
         <section id="examples">
-          <h2>Example</h2>
+          <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+          Dynamic Content
         </section>
+        {selectedTopic}
       </main>
     </div>
   );
