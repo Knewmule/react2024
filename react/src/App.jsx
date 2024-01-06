@@ -4,7 +4,7 @@ import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 // import {  } from './data.js';
-
+import Example from './components/Examples.jsx';
 
 function App() {
   // Only call hooks inside component Funcition
@@ -46,17 +46,8 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic ] !== undefined && EXAMPLES[selectedTopic ].title}</h3>
-            <p></p>
-            <pre>
-              <code>
-
-              </code>
-            </pre>
-          </div>
+          <Example {...EXAMPLES[selectedTopic]} />
         </section>
-        {selectedTopic}
       </main>
     </div>
   );
