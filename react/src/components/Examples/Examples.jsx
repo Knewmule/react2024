@@ -1,5 +1,5 @@
 import './Examples.css';
-export default function Example({selectedTopic,title, description, code}){
+export default function Examples({selectedTopic,title, description, code}){
     return (
         <>
           {!selectedTopic ? <p>Please Click a Button</p> : 

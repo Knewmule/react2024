@@ -5,3 +5,5 @@ import "./index.css";
 
 const entryPoint = document.getElementById("root");
 ReactDOM.createRoot(entryPoint).render(<App />);
+// Without jsx you create elements and looks cumbersom
+// ReactDOM.createRoot(entryPoint).render(React.createElement(App));
