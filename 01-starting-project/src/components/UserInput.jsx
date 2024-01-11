@@ -1,44 +1,32 @@
-import { useState } from "react";
 
-export default function UserInput(){
-    const [userInput,setUserInput] = useState({
-        initialInvestment: 1000,
-        annualInvestment: 1200,
-        expectedReturn: 6,
-        duration: 10
-    });
 
-    function handleChange(inputIdentifier,newValue){
-        setUserInput(prevUserInput =>{
-            return {
-                ...prevUserInput,
-                [inputIdentifier]:newValue
-            };
-        })
-    }
+export default function UserInput({onChange, userInput}){
+    
+
+    
     return (
         <section  id="user-input">
         <div className="input-group">
             <p>
                 <label>Initial Investment</label>
-                <input onChange={(event) => handleChange('initialInvestment',event.target.value)}
+                <input onChange={(event) => onChange('initialInvestment',event.target.value)}
                 type="number" required value={userInput.initialInvestment}/>
             </p>
             <p>
                 <label>Annual Investment</label>
-                <input onChange={(event) => handleChange('annualInvestment',event.target.value)} 
+                <input onChange={(event) => onChange('annualInvestment',event.target.value)} 
                 type="number" required value={userInput.annualInvestment}/>
             </p>
         </div>
         <div className="input-group">
             <p>
                 <label>Expected Return</label>
-                <input onChange={(event) => handleChange('expectedReturn',event.target.value)} 
+                <input onChange={(event) => onChange('expectedReturn',event.target.value)} 
                 type="number" required value={userInput.expectedReturn}/>
             </p>
             <p>
                 <label>Duration</label>
-                <input onChange={(event) => handleChange('duration',event.target.value)} 
+                <input onChange={(event) => onChange('duration',event.target.value)} 
                 type="number" required value={userInput.duration}/>
             </p>
         </div>
