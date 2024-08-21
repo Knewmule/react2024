@@ -6,7 +6,7 @@ export default function Quiz() {
     
     const [answerState,setAnswerState] = useState('');
     const [userAnswers, setUserAnswer] = useState([]);
-    const activeQuestionIndex = answerState === '' ? userAnswers.length : userAnswers.length -1;
+    const activeQuestionIndex =  userAnswers.length;
     
     const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
@@ -37,15 +37,13 @@ export default function Quiz() {
     
 
 // We can use the keyi prop to force react to reload and destroy the component
-    return <div id="quiz" >
+    return(
+        <div id="quiz" >
         <Question 
-        key={activeQuestionIndex}
-        questionText={QUESTIONS[activeQuestionIndex].text}
-            answers={QUESTIONS[activeQuestionIndex].answers}
+            k={activeQuestionIndex}
             onSelectAnswer={handleSelectAnswer}
             onSkipAnswer={handleSkipAnswer}
-            selectedAnswer={userAnswers[userAnswers.length -1] }
-            answerState={answerState}
         />
     </div>
+    );
 }
