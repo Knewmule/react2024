@@ -36,7 +36,9 @@ const Counter = memo (
     const initialCountIsPrime = useMemo(() =>isPrime(initialCount), [initialCount]);
   
     const [counter, setCounter] = useState(initialCount);
-  
+  // const [counterChanges, setCounterChanges] = useState([
+  //   { value: initialCount, id: Math.random() * 1000 }
+  // ]);
     const handleDecrement = useCallback(function handleDecrement() {
       setCounter((prevCounter) => prevCounter - 1);
     },[])
@@ -61,7 +63,7 @@ const Counter = memo (
             Increment
           </IconButton>
         </p>
-          
+          {/* <CounterHistory history={counterChanges}/> */}
       </section>
     );
   }
