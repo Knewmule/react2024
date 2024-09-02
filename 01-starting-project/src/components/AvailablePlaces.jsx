@@ -37,7 +37,7 @@ export default function AvailablePlaces({ onSelectPlace }) {
   }
   return (
     <Places
-      title={availablePlaces.title}
+      title="Available Places"
       places={availablePlaces}
       isLoading={isFetching}
       loadingText={'fetching place data...'}
