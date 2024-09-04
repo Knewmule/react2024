@@ -16,11 +16,12 @@ async function fetchSortedPlaces(){
               position.coords.longitude
             );
             resolve(sortedPlaces);
+            AvailablePlaces(sortedPlaces);
 
         })
-          setAvailablePlaces(sortedPlaces);
+          
           setIsFetching(false);
-      }
+        })
 }
 
 export default function AvailablePlaces({ onSelectPlace }) {
@@ -28,31 +29,43 @@ export default function AvailablePlaces({ onSelectPlace }) {
   // const [availablePlaces, setAvailablePlaces] = useState([]);
   // const [error, setError] = useState();
 
-  const {isFetching,error,
+  const {isFetching,setIsFetching,error,
     fetchedData:availablePlaces, 
     setFetchedData: setAvailablePlaces} = useFetch(fetchSortedPlaces,[]);
+
+
+
+
+
   useEffect(() => {
     async function fetchPlaces() {
+      
       setIsFetching(true);
 
       try {
+        
         fetchSortedPlaces();
-        });
-      } catch (error) {
+        }
+
+       catch(error) {
         setError({
           message:
             error.message || 'Could not fetch places, please try again later.',
         });
         setIsFetching(false);
+        if (error) {
+          return <Error title="An error occurred!" message={error.message} />;
+        }
       }
+    
     }
-
     fetchPlaces();
-  }, []);
+  },[]);
 
-  if (error) {
-    return <Error title="An error occurred!" message={error.message} />;
-  }
+
+
+
+
 
   return (
     <Places
@@ -64,4 +77,5 @@ export default function AvailablePlaces({ onSelectPlace }) {
       onSelectPlace={onSelectPlace}
     />
   );
+
 }
