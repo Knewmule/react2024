@@ -20,7 +20,6 @@ async function fetchSortedPlaces(){
 
         })
           
-          setIsFetching(false);
         })
 }
 
