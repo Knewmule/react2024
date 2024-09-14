@@ -1,17 +1,28 @@
-import React,{useState} from "react";
+import React,{useState,useRef} from "react";
 
 
 export default function Login() {
-
-  const [enteredValue,setEnteredValue] =useState({
-    email:'',password:'',
-  })
-
+  // const [formIsInvalid,setFormIsInvalid] = useState(false);
+  const [emailIsInvalid,setEmailIsInvalid]=useState(false);
+  const email = useRef();
+  const password = useRef();
+  
   function handleSubmit(event){
     event.preventDefault();
-    console.log('Submitted'+enteredValue.email)
-
+    const enteredEmail = email.current.value;
+    const enteredPassword = password.current.value;
+    const emailIsValid = enteredEmail.includes('@')
+    if(!emailIsValid){
+      setEmailIsInvalid(true);
+      return ;
+    }
+    setEmailIsInvalid(false);
+    console.log('Submitted'+enteredEmail+enteredPassword)
+    //CAn reset a use ref like this but its not recommended best practice
+    // email.current.value = '';
+    // password.current.value = '';
   }
+  
   function handleInputChange(identifier,value){
     setEnteredValue(preveValues => ({
       ...preveValues,[identifier]:value
@@ -27,15 +38,14 @@ export default function Login() {
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" 
-          onChange={(event) =>handleInputChange('email',event.target.value)} 
-          value={enteredValue.email} />
+          ref={email}/>
+          <div className="control-error" >{emailIsInvalid && <p>Please enter Valid email address.</p>}</div>
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
           <input id="password" type="password" name="password"  
-          onChange={(event) =>handleInputChange('password',event.target.value)} 
-          value={enteredValue.password}
+         ref={password}
           />
         </div>
       </div>
