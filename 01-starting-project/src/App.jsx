@@ -1,13 +1,9 @@
-import Header from './components/Header.jsx';
-import StateLogin from './components/StateLogin.jsx';
-import Signup from './components/Signup.jsx'
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <StateLogin />
-      </main>
+      <h1>You got this 💪</h1>
+      <p>Stuck? Not sure how to proceed?</p>
+      <p>Don't worry - we've all been there. Let's build it together!</p>
     </>
   );
 }
