@@ -7,9 +7,9 @@ export default function Items(){
     const [fetching,setFetching] = useState(false);
     useEffect(()=>{
         async function fetchI(){
-            
+            setFetching(true)
             try{
-                setFetching(true)
+                
                 const i = await fetchItems();
                 setItems(i)
                 setFetching(false);

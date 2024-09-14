@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import Items from "./Items";
+import Items from "./Items.jsx";
 function App() {
 
 

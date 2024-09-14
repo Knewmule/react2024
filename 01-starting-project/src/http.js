@@ -5,5 +5,5 @@ export async function fetchItems(){
     if(!item.ok){
         return new Error('Faild to fetch meals')
     }
-    return res.image
+    return res
 }
