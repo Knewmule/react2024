@@ -1,13 +1,13 @@
 import React,{useState} from "react";
-import Items from "./Items.jsx";
+import Header from "./Components/Header";
+import Meals from "./Components/Meals";
 function App() {
 
 
   return (
     <>
-      <div id="main-header">
-        <Items />
-      </div>
+      <Header />
+      <Meals />
     </>
   );
 }
