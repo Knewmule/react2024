@@ -22,7 +22,11 @@ export default function Items(){
 
 
     return(
-        fetching && <Item loading={fetching}items={items}/>
+        <>
+        {
+            fetching && <Item loading={fetching}items={items}/>
+        }
    
+        </>
     )
 }
