@@ -39,7 +39,7 @@ export default function Meals(){
     }
     return( 
       
-        <div>
+        <li id="meals">
         {
                 
                 !loadup && loadedMeals.map((meal)=>{
@@ -48,6 +48,6 @@ export default function Meals(){
                 })
              }
       
-        </div>
+        </li>
     )
 }

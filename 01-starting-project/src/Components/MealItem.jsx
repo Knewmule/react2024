@@ -12,8 +12,8 @@ export default function MealItem({ meal }) {
   }
 
   return (
-    <div className="meal-item">
-      <article>
+    <ul >
+      <article className="meal-item">
         <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} />
         <div>
           <h3>{meal.name}</h3>
@@ -26,6 +26,6 @@ export default function MealItem({ meal }) {
           <Button onClick={handleAddMealToCart}>Add to Cart</Button>
         </p>
       </article>
-    </div>
+    </ul>
   );
 }
