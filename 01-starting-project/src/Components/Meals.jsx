@@ -38,13 +38,16 @@ export default function Meals(){
         })
     }
     return( 
-        <ul id="meals">
-            {
+      
+        <div>
+        {
                 
-               sw()
-               
-                
-            }
-        </ul>
+                !loadup && loadedMeals.map((meal)=>{
+                    {mh(meal.name)}
+                   return   <MealItem key={meal.id} meal={meal}/>
+                })
+             }
+      
+        </div>
     )
 }

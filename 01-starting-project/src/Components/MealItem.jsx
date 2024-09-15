@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React,{ useContext } from 'react';
 
 import {currencyFormatter}  from '../util/formatting.js';
 import Button from './UI/Button.jsx';
@@ -12,7 +12,7 @@ export default function MealItem({ meal }) {
   }
 
   return (
-    <li className="meal-item">
+    <div className="meal-item">
       <article>
         <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} />
         <div>
@@ -26,6 +26,6 @@ export default function MealItem({ meal }) {
           <Button onClick={handleAddMealToCart}>Add to Cart</Button>
         </p>
       </article>
-    </li>
+    </div>
   );
 }
