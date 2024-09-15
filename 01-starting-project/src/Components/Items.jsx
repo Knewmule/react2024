@@ -1,0 +1,32 @@
+import React,{useState,useEffect} from "react";
+import Item from './Item'
+import { fetchItems } from "../useHttp";
+export default function Items(){
+
+    const [items,setItems] = useState([{}])
+    const [fetching,setFetching] = useState(false);
+    useEffect(()=>{
+        async function fetchI(){
+            setFetching(true)
+            try{
+                
+                const i = await fetchItems();
+                setItems(i)
+                setFetching(false);
+            }catch(e){
+                console.log(e)
+            }
+        }
+        fetchI()
+    },[items])
+
+
+    return(
+        <>
+        {
+            fetching && <Item loading={fetching}items={items}/>
+        }
+   
+        </>
+    )
+}
