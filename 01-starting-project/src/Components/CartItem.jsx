@@ -11,7 +11,7 @@ export default function CartItem({
     return(
         <div className="cart-item">
             <p>
-                {name} - {quantity} {currencyFormatter.price(price)}
+                {name} - {quantity} {currencyFormatter.format(price)}
             </p>
             <p className="cart-item-actions">
                 <button onClick={onDecrease}>-</button>

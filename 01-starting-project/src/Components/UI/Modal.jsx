@@ -15,7 +15,7 @@ export default function Modal({ children,
     }
 
     return () => modal.close();
-  }, [open]);
+  }, [open,onClose]);
 
   return createPortal(
     <dialog ref={dialog} 

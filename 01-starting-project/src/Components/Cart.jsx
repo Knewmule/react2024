@@ -1,5 +1,6 @@
 import React,{useContext} from "react";
 import Modal from "./UI/Modal";
+import CartC from "./CartC";
 import CartContext from '../store/CartContext'
 import Button from './UI/Button'
 import { currencyFormatter } from "../util/formatting";
@@ -31,28 +32,13 @@ export default function Cart(){
         <h2>Your Cart</h2>
         
             
-            {
-                cartCtx.items.map((item)=>{
-                    
-                        
-                    <CartItem
-            key={item.id}
-            name={item.name}
-            quantity={item.quantity}
-            price={item.price}
-            onIncrease={()=>cartCtx.addItem(item)}
-            onDecrease={()=>cartCtx.removeItem(item)}
-            />
-                
-            
-        })
-            }
+            <CartC />
         
             
 
         <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>
         <p className="modal-actions">
-            <Button textOnly onClose={handleCloseCart}>Close</Button>
+            <Button  onClick={handleCloseCart}>Close</Button>
             {cartCtx.items.length > 0 && (
                 <Button onClick={handleGoToCheckout}>Go to Checkout</Button>
             )}
