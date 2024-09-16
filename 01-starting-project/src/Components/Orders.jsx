@@ -8,24 +8,23 @@ export default function Orders(){
         error: errorReport
     } = useHttp('http://localhost:3000/orders',requestConfig,[])
     
-    function ord(){
-        loadedOrders !== undefined && console.log(loadedOrders[0])
+    function ord(v){
+        console.log(v)
+        
     }
     return (
 
         <>
-      {ord()}
+ 
       
         { 
             
-           loadup && loadedOrders !== undefined ||  loadedOrders.length >= 1 && 
+           loadedOrders.length > 0 && 
             loadedOrders.map((v,i)=>{
-                
-                    { 
-              
-                        v[i]
-                    
-                    }
+                {ord(v)}
+                return(
+                    <p key={v.id}>{v.customer.name}</p>
+                )
                 
             })
         }
