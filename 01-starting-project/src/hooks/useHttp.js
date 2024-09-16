@@ -1,40 +1,53 @@
-import React,{useState,useEffect,useCallback} from "react";
- async function fetchItems(url){
-    const item = await fetch(url);
-    const res = await item.json()
-    if(!item.ok){
-        return new Error('Faild to fetch meals')
-    }
-    return res
+import { useCallback, useEffect, useState } from 'react';
+
+async function sendHttpRequest(url, config) {
+  const response = await fetch(url, config);
+
+  const resData = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      resData.message || 'Something went wrong, failed to send request.'
+    );
+  }
+
+  return resData;
 }
 
-export default function useHttp(url){
+export default function useHttp(url, config, initialData) {
+  const [data, setData] = useState(initialData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
 
-    const [data,setData] = useState([])
-    const [loading,setLoading] = useState(false);
-    const [error,setError] = useState();
-    const sendRequest = useCallback(
-        async function sendRequest(){
-            setLoading(true);
-            try{
+  function clearData() {
+    setData(initialData);
+  }
 
-                const resdata = await fetchItems(url)
-                setData(resdata);
-                
-            }catch(e){
-                console.log(e);
-                setError(e);
-                
-            }
-            setLoading(false);
-        },[url]
-    );
-    useEffect(()=>{
-        sendRequest()
-    },[])
-    return {
-        data,
-        loading,
-        error
+  const sendRequest = useCallback(
+    async function sendRequest(data) {
+      setIsLoading(true);
+      try {
+        const resData = await sendHttpRequest(url, { ...config, body: data });
+        setData(resData);
+      } catch (error) {
+        setError(error.message || 'Something went wrong!');
+      }
+      setIsLoading(false);
+    },
+    [url, config]
+  );
+
+  useEffect(() => {
+    if ((config && (config.method === 'GET' || !config.method)) || !config) {
+      sendRequest();
     }
+  }, [sendRequest, config]);
+
+  return {
+    data,
+    isLoading,
+    error,
+    sendRequest,
+    clearData
+  };
 }

@@ -29,7 +29,7 @@ export default function Cart(){
         close={userProgressCtx.progress === 'cart' ? handleCloseCart : null}
         >
         <h2>Your Cart</h2>
-        <ul>
+        <div>
             {
                 cartCtx.items.map((item)=>{
                     <CartItem
@@ -42,7 +42,7 @@ export default function Cart(){
                     />
                 })
             }
-        </ul>
+        </div>
 
         <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>
         <p className="modal-actions">
