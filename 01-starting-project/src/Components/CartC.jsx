@@ -3,6 +3,9 @@ import CartContext from '../store/CartContext';
 import CartItem from "./CartItem";
 export default function CartC(){
     const cartCtx = useContext(CartContext);
+    function handleAddItem(item){
+        cartCtx.addItem(item)
+    }
     return(
         <>
      
@@ -19,7 +22,7 @@ export default function CartC(){
         quantity={item.quantity}
         price={item.price}
         onIncrease={()=>cartCtx.addItem(item)}
-        onDecrease={()=>cartCtx.removeItem(item)}
+        onDecrease={()=>cartCtx.removeItem(item.id)}
         />
                 )
             
