@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import Header from "./Components/Header";
 import Meals from "./Components/Meals";
+import Cart from "./Components/Cart";
+import Checkout from "./Components/Checkout";
 import { CartContextProvider } from "./store/CartContext";
 function App() {
 
@@ -9,6 +11,8 @@ function App() {
     <CartContextProvider>
       <Header />
       <Meals />
+      <Cart />
+      <Checkout />
     </CartContextProvider>
   );
 }
