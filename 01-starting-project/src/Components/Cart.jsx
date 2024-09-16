@@ -26,23 +26,29 @@ export default function Cart(){
         <Modal 
         className="cart"
         open={userProgressCtx.progress === 'cart'}
-        close={userProgressCtx.progress === 'cart' ? handleCloseCart : null}
+        onClose={userProgressCtx.progress === 'cart' ? handleCloseCart : null}
         >
         <h2>Your Cart</h2>
-        <div>
+        
+            
             {
                 cartCtx.items.map((item)=>{
+                    
+                        
                     <CartItem
-                    key={item.id}
-                    name={item.name}
-                    quantity={item.quantity}
-                    price={item.price}
-                    onIncrease={()=>cartCtx.addItem(item)}
-                    onDecrease={()=>cartCtx.removeItem(item)}
-                    />
-                })
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            price={item.price}
+            onIncrease={()=>cartCtx.addItem(item)}
+            onDecrease={()=>cartCtx.removeItem(item)}
+            />
+                
+            
+        })
             }
-        </div>
+        
+            
 
         <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>
         <p className="modal-actions">
