@@ -29,14 +29,9 @@ export default function Cart(){
         onClose={userProgressCtx.progress === 'cart' ? handleCloseCart : null}
         >
         <h2>Your Cart</h2>
-        
-            
-            <div>
-            <CartC />
-            </div>
-        
-            
 
+            <CartC />
+  
         <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>
         <p className="modal-actions">
             <Button  onClick={handleCloseCart}>Close</Button>

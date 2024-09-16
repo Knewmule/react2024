@@ -32,12 +32,7 @@ export default function Meals(){
     if(errorReport){
         return <p>{errorReport}</p>
     }
-    function sw(){
-         loadup || !loadedMeals.map((meal)=>{
-            {mh(meal.name)}
-           return   <MealItem key={meal.id} meal={meal}/>
-        })
-    }
+
     return( 
       
         <li id="meals">

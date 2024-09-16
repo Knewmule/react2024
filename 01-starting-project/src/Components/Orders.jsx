@@ -16,7 +16,7 @@ export default function Orders(){
     function handleOrder(name){
         console.log(name);
         return(
-            <Order name={name}/>
+           name && <Order name={name}/>
         )
     }
     return (
