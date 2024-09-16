@@ -14,12 +14,17 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
-
+// Get available meals from json data
 app.get('/meals', async (req, res) => {
   const meals = await fs.readFile('./data/available-meals.json', 'utf8');
   res.json(JSON.parse(meals));
 });
-
+// Get available orders from json data
+app.get('/orders', async (req, res) => {
+  const orders = await fs.readFile('./data/orders.json', 'utf8');
+  res.json(JSON.parse(orders));
+});
+// Make a order
 app.post('/orders', async (req, res) => {
   const orderData = req.body.order;
 
@@ -57,7 +62,7 @@ app.post('/orders', async (req, res) => {
   await fs.writeFile('./data/orders.json', JSON.stringify(allOrders));
   res.status(201).json({ message: 'Order created!' });
 });
-
+// Dont understand this one
 app.use((req, res) => {
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);

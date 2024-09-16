@@ -3,16 +3,15 @@ import CartContext from '../store/CartContext';
 import CartItem from "./CartItem";
 export default function CartC(){
     const cartCtx = useContext(CartContext);
-    function handleAddItem(item){
-        cartCtx.addItem(item)
-    }
+
     return(
         <>
      
         
             
         {
-            cartCtx.items.map((item)=>{
+            
+                cartCtx.items.map((item)=>{
                 
                     
                 return(
@@ -28,6 +27,7 @@ export default function CartC(){
             
         
     })
+            
         }
     
     </>

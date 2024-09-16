@@ -31,7 +31,9 @@ export default function Cart(){
         <h2>Your Cart</h2>
         
             
+            <div>
             <CartC />
+            </div>
         
             
 

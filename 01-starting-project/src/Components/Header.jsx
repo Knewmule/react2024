@@ -2,6 +2,7 @@ import React,{useContext} from "react";
 import logoImg from '../assets/logo.jpg';
 import CartContext from "../store/CartContext";
 import Button from "./UI/Button";
+import Orders from "./Orders";
 import UserProgressContext from "../store/UserProgressContext";
 export default function Header() {
     const userProgressCtx = useContext(UserProgressContext)
@@ -18,6 +19,9 @@ export default function Header() {
             <div id="title">
                 <img src={logoImg } alt={"Restuarnt Food"}/>
                 <h1>React Food</h1>
+            </div>
+            <div>
+            <Orders />
             </div>
             <nav>
                 <Button onClick={handleShowCart} >{totalCartItems}</Button>
