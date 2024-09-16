@@ -8,11 +8,7 @@ export default function Order({name}){
     }
     const UserProgressCtx = useContext(UserProgressContext)
     return (
-        <Modal open={UserProgressCtx.progress === 'order'}
-        className="cart"
-        onClose={UserProgressCtx.progress === 'order' ? handleCloseOrder : null }
-        >
             <p className="modal-actions">{name}</p>
-        </Modal>
+
     )
 }

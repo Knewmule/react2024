@@ -21,7 +21,6 @@ export default function Header() {
                 <h1>React Food</h1>
             </div>
             <div>
-            <Orders />
             </div>
             <nav>
                 <Button onClick={handleShowCart} >{totalCartItems}</Button>

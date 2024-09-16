@@ -1,12 +1,13 @@
 import React,{useContext} from "react";
 import CartContext from '../store/CartContext';
 import CartItem from "./CartItem";
+import Orders from "./Order";
 export default function CartC(){
     const cartCtx = useContext(CartContext);
 
     return(
         <>
-     
+     <Orders />
         
             
         {

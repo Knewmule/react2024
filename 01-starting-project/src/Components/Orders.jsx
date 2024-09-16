@@ -16,7 +16,7 @@ export default function Orders(){
     function handleOrder(name){
         console.log(name);
         return(
-           name && <Order name={name}/>
+           <Order name={name} />
         )
     }
     return (
@@ -30,7 +30,8 @@ export default function Orders(){
             loadedOrders.map((v,i)=>{
                 {ord(v)}
                 return(
-                    <Button onClick={() =>handleOrder(v.customer.name)} textOnly key={v.id}>{v.customer.name}</Button>
+                    <Button onClick={() =>handleOrder(v.customer.name)} 
+                    textOnly key={v.id}>{v.customer.name}</Button>
                 )
                 
             })
