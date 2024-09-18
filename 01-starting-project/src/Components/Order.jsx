@@ -8,7 +8,6 @@ export default function Order({name}){
     }
     const UserProgressCtx = useContext(UserProgressContext)
     return (
-            <p className="modal-actions">{name}</p>
-
+            <p>{name}</p>
     )
 }

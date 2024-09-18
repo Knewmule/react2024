@@ -2,6 +2,7 @@ import React,{useContext} from "react";
 import Modal from "./UI/Modal";
 import CartC from "./CartC";
 import CartContext from '../store/CartContext'
+import Orders from './Orders'
 import Button from './UI/Button'
 import { currencyFormatter } from "../util/formatting";
 import UserProgressContext from "../store/UserProgressContext";
@@ -28,8 +29,9 @@ export default function Cart(){
         open={userProgressCtx.progress === 'cart'}
         onClose={userProgressCtx.progress === 'cart' ? handleCloseCart : null}
         >
+            <Orders />
         <h2>Your Cart</h2>
-
+            
             <CartC />
   
         <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>

@@ -7,15 +7,15 @@ export default function CartC(){
 
     return(
         <>
-     <Orders />
+     
         
-            
         {
             
                 cartCtx.items.map((item)=>{
                 
-                    
+                   
                 return(
+                    
                     <CartItem
         key={item.id}
         name={item.name}
