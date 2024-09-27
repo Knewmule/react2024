@@ -1,3 +1,4 @@
+import React from "react";
 import { createStore } from "redux";
 
 const counterReducer = (state,action) =>{
